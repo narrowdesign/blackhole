@@ -1,0 +1,22 @@
+body {
+	font-family: sans-serif;
+	margin: 0px;
+	background-color: #000000;
+	overflow: hidden;
+}
+
+#info {
+	color: #fff;
+	position: absolute;
+	top: 10px;
+	width: 100%;
+	text-align: center;
+}
+
+#debug {
+	z-index: 999;
+	color: #00ff00;
+	position: absolute;
+	top: 100px;
+	font-family: sans-serif;
+}
