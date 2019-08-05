@@ -18,6 +18,7 @@ class Rings {
     
     
 		this.material = new THREE.ShaderMaterial( {
+      side: THREE.DoubleSide,
 			uniforms: {
 				u_time: {type: 'f', value: 0}
 			},
@@ -69,6 +70,7 @@ class Rings {
 
     for (let i = 0; i < this.rings.children.length; i++) {
       this.rings.children[i].position.z += i / (1000 + this.frame);
+      this.rings.rotation.y += .0001;
     }
 	};
 }
