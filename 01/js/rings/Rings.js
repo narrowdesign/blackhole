@@ -14,7 +14,16 @@ class Rings {
 
 		this.renderer = new THREE.WebGLRenderer({antialias: true});
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
-		this.el.appendChild( this.renderer.domElement );
+    this.el.appendChild( this.renderer.domElement );
+    
+    window.addEventListener('keyup', (e) => {
+      if (e.key === 'ArrowRight') {
+        this.rotate('right');
+      }
+      if (e.key === 'ArrowLeft') {
+        this.rotate('left');
+      }
+    })
     
     
 		this.material = new THREE.ShaderMaterial( {
@@ -70,9 +79,18 @@ class Rings {
 
     for (let i = 0; i < this.rings.children.length; i++) {
       this.rings.children[i].position.z += i / (1000 + this.frame);
-      this.rings.rotation.y += .0001;
     }
-	};
+  };
+  
+  rotate(direction) {
+    let rotation = .001;
+    if (direction === "left") {
+      rotation = -.001;
+    }
+    for (let i = 0; i < this.rings.children.length; i++) {
+      this.rings.rotation.y += rotation;
+    }
+  }
 }
 
 export default Rings;
